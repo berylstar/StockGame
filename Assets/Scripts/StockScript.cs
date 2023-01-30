@@ -77,9 +77,9 @@ public class StockScript : MonoBehaviour
 
     public void ButtonBuying()
     {
-        if (TimeController.myMoney >= costNow && !flag_Delisting)
+        if (GameController.game_inst.myMoney >= costNow && !flag_Delisting)
         {
-            TimeController.myMoney -= costNow;
+            GameController.game_inst.myMoney -= costNow;
             stockHolding += 1;
             textStockHolding.text = stockHolding + "";
             SoundManager.inst.PlaySound("Buy");
@@ -92,7 +92,7 @@ public class StockScript : MonoBehaviour
     {
         if (stockHolding > 0)
         {
-            TimeController.myMoney += costNow;
+            GameController.game_inst.myMoney += costNow;
             stockHolding -= 1;
             textStockHolding.text = stockHolding + "";
             SoundManager.inst.PlaySound("Sell");

@@ -1584,7 +1584,7 @@ GameObject:
   - component: {fileID: 562557424}
   - component: {fileID: 562557423}
   m_Layer: 5
-  m_Name: TextAccount
+  m_Name: TextMyMoney
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1642,7 +1642,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 1000 $
+  m_Text: 0 $
 --- !u!222 &562557424
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5395,7 +5395,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2008071911}
-  - component: {fileID: 2008071912}
   - component: {fileID: 2008071913}
   m_Layer: 0
   m_Name: GameManager
@@ -5418,26 +5417,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2008071912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2008071910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d453b3dc3c88e0142bc55d7c60cc9563, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stocks:
-  - {fileID: 874324049}
-  - {fileID: 917611142}
-  - {fileID: 1211902394}
-  - {fileID: 1740084915}
-  - {fileID: 1177834085}
-  textTime: {fileID: 636667545}
-  textAccount: {fileID: 562557423}
 --- !u!114 &2008071913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5450,6 +5429,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c32e7e28a5e84454f970709350fd691a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stocks:
+  - {fileID: 874324049}
+  - {fileID: 917611142}
+  - {fileID: 1211902394}
+  - {fileID: 1740084915}
+  - {fileID: 1177834085}
+  textTime: {fileID: 636667545}
+  textMyMoney: {fileID: 562557423}
+  myMoney: 2000
 --- !u!1 &2045107873
 GameObject:
   m_ObjectHideFlags: 0
