@@ -1,59 +1,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
+public enum eStockType
+{
+    RANDOM,         // 랜덤
+    CRESCENDO,      // 점점 증가
+    BIGUP,          // 떡상
+    BIGDOWN,        // 떡락
+    WAVE,           // 개잡주
+    STEADY,         // 대장주
+}
+
+// 3개는 랜덤
+// 2개는 정해진 패턴대로 행동
+// 꾸준상승주, 떡상, 떡락, 개잡주, 대장주
 
 public class GameController : MonoBehaviour
 {
-    public static readonly WaitForSecondsRealtime delay_1s = new WaitForSecondsRealtime(1f);
-    public static readonly WaitForSecondsRealtime delay_10s = new WaitForSecondsRealtime(10f);
-    public static readonly WaitForSecondsRealtime delay_1m = new WaitForSecondsRealtime(60f);
+    private int costChange = 0;
 
-    public GameObject[] stocks;
-    public Text textTime;
-    public Text textAccount;
 
-    private int iHour = 9;
-    private int iMin = 0;
-    public static int myMoney = 1000;
-
-    private void Awake()
+    public void Stock_Random()
     {
-        textTime.text = "09:00";
-
-        StartCoroutine(GameStart());
+        costChange = Random.Range(-5, 6) * 100;
     }
 
-    private void Update()
+    public void Stock_Crescendo()
     {
-        textAccount.text = myMoney + " $";
+        costChange = Random.Range(0, 5) * 100;
     }
 
-    IEnumerator GameStart()
+    public void Stock_Bigup()
     {
-        while (iHour < 15 || iMin < 30)
-        {
-            textTime.text = string.Format("{0:D2}:{1:D2}", iHour, iMin);
 
-            yield return delay_1s;
+    }
 
-            iMin += 1;
+    public void Stock_Bigdown()
+    {
 
-            if (iMin >= 60)
-            {
-                iMin = 0;
-                iHour += 1;
-            }
+    }
 
-            if (iMin == 0 || iMin == 30)
-            {
-                for (int i = 0; i < stocks.Length; i++)
-                {
-                    stocks[i].GetComponent<StockScript>().CostChange();
-                }
-            }
-        }
+    public void Stock_Wave()
+    {
+        costChange = Random.Range(-3, 3) * 200;
+    }
 
-        textTime.text = "15:30";
+    public void Stock_Steady()
+    {
+        costChange = Random.Range(-3, 3) * 100;
     }
 }

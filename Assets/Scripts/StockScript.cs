@@ -26,13 +26,18 @@ public class StockScript : MonoBehaviour
     {
         NextToNowCost();
         textCost.text = costNow + "$";
-        HowMuchChange();
+        AppleTextChange();
 
-        costChange = Random.Range(-5, 6) * 100;
+        PriceChange();
         costNext = costNow + costChange;
     }
 
-    private void HowMuchChange()
+    private void PriceChange()
+    {
+        costChange = Random.Range(-5, 6) * 100;
+    }
+
+    private void AppleTextChange()
     {
         if (costChange > 0)
         {
@@ -70,21 +75,28 @@ public class StockScript : MonoBehaviour
 
     public void ButtonBuying()
     {
-        if (GameController.myMoney >= costNow && !flag_Delisting)
+        if (TimeController.myMoney >= costNow && !flag_Delisting)
         {
-            GameController.myMoney -= costNow;
+            TimeController.myMoney -= costNow;
             stockHolding += 1;
             textStockHolding.text = stockHolding + "";
+            SoundManager.inst.PlaySound("Buy");
         }
+        else
+            SoundManager.inst.PlaySound("Error");
     }
 
     public void ButtonSelling()
     {
         if (stockHolding > 0)
         {
-            GameController.myMoney += costNow;
+            TimeController.myMoney += costNow;
             stockHolding -= 1;
             textStockHolding.text = stockHolding + "";
+            SoundManager.inst.PlaySound("Sell");
+
         }
+        else
+            SoundManager.inst.PlaySound("Error");
     }
 }
