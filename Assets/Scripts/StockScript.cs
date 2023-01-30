@@ -5,33 +5,86 @@ using UnityEngine.UI;
 
 public class StockScript : MonoBehaviour
 {
+    public Text textCost;
+    public Text textChange;
+    public Text textStockHolding;
+
+    public int stockHolding = 0;
     public int costNow;
     private int costNext;
-
-    public Text textCost;
-    public Text textChange;     // (- ¡ã ¡å)
+    private int costChange;
+    private bool flag_Delisting = false;
 
     private void Start()
     {
-        StartCoroutine(NextInNow());
+        costNext = costNow;
+        costChange = 0;
+        CostChange();
     }
 
-    private void CostChange()
+    public void CostChange()
     {
-        int iRand = Random.Range(-5, 6);
-        costNext = costNow + iRand * 100;
+        NextToNowCost();
+        textCost.text = costNow + "$";
+        HowMuchChange();
+
+        costChange = Random.Range(-5, 6) * 100;
+        costNext = costNow + costChange;
     }
 
-    IEnumerator NextInNow()
+    private void HowMuchChange()
     {
-        while(true)
+        if (costChange > 0)
         {
-            CostChange();
+            textChange.text = "(" + costChange + " ¡ã)";
+        }
+        else if (costChange < 0)
+        {
+            textChange.text = "(" + costChange + "¡å)";
+        }
+        else
+        {
+            textChange.text = "(------)";
+        }
 
-            yield return TimeController.delay_1s;
+        if (flag_Delisting)
+        {
+            textChange.text = "(»óÀåÆóÁö)";
+        }
+    }
 
-            costNow = costNext;
-            textCost.text = costNow + "$";
+    private void NextToNowCost()
+    {
+        costNow = costNext;
+
+        if (costNow <= 0)
+        {
+            flag_Delisting = true;
+            costNow = 0;
+            stockHolding = 0;
+            textStockHolding.text = stockHolding + "";
+        }
+        else if (costNow > 0)
+            flag_Delisting = false;
+    }
+
+    public void ButtonBuying()
+    {
+        if (GameController.myMoney >= costNow && !flag_Delisting)
+        {
+            GameController.myMoney -= costNow;
+            stockHolding += 1;
+            textStockHolding.text = stockHolding + "";
+        }
+    }
+
+    public void ButtonSelling()
+    {
+        if (stockHolding > 0)
+        {
+            GameController.myMoney += costNow;
+            stockHolding -= 1;
+            textStockHolding.text = stockHolding + "";
         }
     }
 }
