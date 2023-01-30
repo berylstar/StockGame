@@ -9,6 +9,7 @@ public class StockScript : MonoBehaviour
     public Text textChange;
     public Text textStockHolding;
 
+    [HideInInspector] public eStockType thistype;
     public int stockHolding = 0;
     public int costNow;
     private int costNext;
@@ -19,16 +20,17 @@ public class StockScript : MonoBehaviour
     {
         costNext = costNow;
         costChange = 0;
-        CostChange();
+        CalcStock();
     }
 
-    public void CostChange()
+    public void CalcStock()
     {
         NextToNowCost();
         textCost.text = costNow + "$";
         AppleTextChange();
 
-        PriceChange();
+        // PriceChange();
+        costChange = GameController.game_inst.PriceChange(this);
         costNext = costNow + costChange;
     }
 

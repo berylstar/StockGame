@@ -16,6 +16,7 @@ public class TimeController : MonoBehaviour
     private int iHour = 9;
     private int iMin = 0;
     public static int myMoney = 2000;
+    public static int stage = 0;
 
     private void Awake()
     {
@@ -52,8 +53,10 @@ public class TimeController : MonoBehaviour
             {
                 for (int i = 0; i < stocks.Length; i++)
                 {
-                    stocks[i].GetComponent<StockScript>().CostChange();
+                    stocks[i].GetComponent<StockScript>().CalcStock();
                 }
+
+                stage += 1;
 
                 SoundManager.inst.PlaySound("OnTime");
             }

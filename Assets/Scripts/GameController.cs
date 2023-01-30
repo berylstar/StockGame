@@ -18,36 +18,97 @@ public enum eStockType
 
 public class GameController : MonoBehaviour
 {
-    private int costChange = 0;
+    public static GameController game_inst = null;
 
+    public GameObject[] stocks;
 
-    public void Stock_Random()
+    private List<int> indexList = new List<int>() { 0, 1, 2, 3, 4 };
+    private List<eStockType> typeList = new List<eStockType>() { eStockType.CRESCENDO, eStockType.BIGUP, eStockType.BIGDOWN, eStockType.WAVE, eStockType.STEADY };
+
+    private void Awake()
     {
-        costChange = Random.Range(-5, 6) * 100;
+        if (game_inst == null)
+            game_inst = this;
+
+        DrawLots();
     }
 
-    public void Stock_Crescendo()
+    private void DrawLots()
     {
-        costChange = Random.Range(0, 5) * 100;
+        int[] shakedIndex = new int[5];
+        eStockType[] pickedType = new eStockType[5] { eStockType.RANDOM, eStockType.RANDOM , eStockType.RANDOM , eStockType.RANDOM , eStockType.RANDOM };
+
+        for (int i = 0; i< 5; i++)
+        {
+            int iRand = Random.Range(0, indexList.Count);
+            shakedIndex[i] = indexList[iRand];
+            indexList.RemoveAt(iRand);
+        }
+
+        // 패턴 두개 뽑기
+        for (int i = 0; i < 2; i++)
+        {
+            int iRand = Random.Range(0, typeList.Count);
+            pickedType[i] = typeList[iRand];
+            typeList.RemoveAt(iRand);
+        }
+
+        for (int i = 0; i < 5; i++)
+        {
+            stocks[shakedIndex[i]].GetComponent<StockScript>().thistype = pickedType[i];
+        }
     }
 
-    public void Stock_Bigup()
+    public int PriceChange(StockScript stock)
     {
+        if (stock.thistype == eStockType.RANDOM)
+            return Stock_Random();
 
+        else if (stock.thistype == eStockType.CRESCENDO)
+            return Stock_Crescendo();
+
+        else if (stock.thistype == eStockType.BIGUP)
+            return Stock_Bigup();
+
+        else if (stock.thistype == eStockType.BIGDOWN)
+            return Stock_Bigdown();
+
+        else if (stock.thistype == eStockType.WAVE)
+            return Stock_Wave();
+
+        else if (stock.thistype == eStockType.STEADY)
+            return Stock_Steady();
+
+        return 0;
     }
 
-    public void Stock_Bigdown()
+    private int Stock_Random()
     {
-
+        return Random.Range(-5, 6) * 100;
     }
 
-    public void Stock_Wave()
+    private int Stock_Crescendo()
     {
-        costChange = Random.Range(-3, 3) * 200;
+        return Random.Range(0, 5) * 100;
     }
 
-    public void Stock_Steady()
+    private int Stock_Bigup()
     {
-        costChange = Random.Range(-3, 3) * 100;
+        return 0;
+    }
+
+    private int Stock_Bigdown()
+    {
+        return 0;
+    }
+
+    private int Stock_Wave()
+    {
+        return Random.Range(-4, 4) * 200;
+    }
+
+    private int Stock_Steady()
+    {
+        return Random.Range(-3, 2) * 100;
     }
 }

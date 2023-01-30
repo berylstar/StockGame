@@ -2574,6 +2574,7 @@ MonoBehaviour:
   textCost: {fileID: 1914375776}
   textChange: {fileID: 1895358641}
   textStockHolding: {fileID: 1557616547}
+  thistype: 0
   stockHolding: 0
   costNow: 500
 --- !u!222 &874324052
@@ -3146,6 +3147,7 @@ MonoBehaviour:
   textCost: {fileID: 897352960}
   textChange: {fileID: 185781801}
   textStockHolding: {fileID: 901790067}
+  thistype: 0
   stockHolding: 0
   costNow: 500
 --- !u!222 &917611145
@@ -3716,6 +3718,7 @@ MonoBehaviour:
   textCost: {fileID: 1257970300}
   textChange: {fileID: 1541307811}
   textStockHolding: {fileID: 1334571632}
+  thistype: 0
   stockHolding: 0
   costNow: 300
 --- !u!222 &1177834088
@@ -3814,6 +3817,7 @@ MonoBehaviour:
   textCost: {fileID: 413457001}
   textChange: {fileID: 265981208}
   textStockHolding: {fileID: 807312096}
+  thistype: 0
   stockHolding: 0
   costNow: 1200
 --- !u!222 &1211902397
@@ -4675,6 +4679,7 @@ MonoBehaviour:
   textCost: {fileID: 1704507046}
   textChange: {fileID: 797808417}
   textStockHolding: {fileID: 1405253578}
+  thistype: 0
   stockHolding: 0
   costNow: 700
 --- !u!222 &1740084918
@@ -5391,6 +5396,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2008071911}
   - component: {fileID: 2008071912}
+  - component: {fileID: 2008071913}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -5432,6 +5438,18 @@ MonoBehaviour:
   - {fileID: 1177834085}
   textTime: {fileID: 636667545}
   textAccount: {fileID: 562557423}
+--- !u!114 &2008071913
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008071910}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c32e7e28a5e84454f970709350fd691a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2045107873
 GameObject:
   m_ObjectHideFlags: 0
