@@ -1364,7 +1364,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: '<<STOCK TYPE>>
+
+    RANDOM & WAVE
+
+    BIGUP & BIGDOWN
+
+    CRESCENDO
+    & STEADY'
 --- !u!222 &448464645
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2577,6 +2584,7 @@ MonoBehaviour:
   thistype: 0
   stockHolding: 0
   costNow: 500
+  myAverage: 0
 --- !u!222 &874324052
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2782,7 +2790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 600, y: -100}
+  m_AnchoredPosition: {x: 550, y: -100}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &897352958
@@ -3150,6 +3158,7 @@ MonoBehaviour:
   thistype: 0
   stockHolding: 0
   costNow: 500
+  myAverage: 0
 --- !u!222 &917611145
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3721,6 +3730,7 @@ MonoBehaviour:
   thistype: 0
   stockHolding: 0
   costNow: 300
+  myAverage: 0
 --- !u!222 &1177834088
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3820,6 +3830,7 @@ MonoBehaviour:
   thistype: 0
   stockHolding: 0
   costNow: 1200
+  myAverage: 0
 --- !u!222 &1211902397
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4682,6 +4693,7 @@ MonoBehaviour:
   thistype: 0
   stockHolding: 0
   costNow: 700
+  myAverage: 0
 --- !u!222 &1740084918
 CanvasRenderer:
   m_ObjectHideFlags: 0

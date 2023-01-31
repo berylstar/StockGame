@@ -29,14 +29,8 @@ public class StockScript : MonoBehaviour
         textCost.text = costNow + "$";
         AppleTextChange();
 
-        // PriceChange();
         costChange = GameController.game_inst.PriceChange(this);
         costNext = costNow + costChange;
-    }
-
-    private void PriceChange()
-    {
-        costChange = Random.Range(-5, 6) * 100;
     }
 
     private void AppleTextChange()

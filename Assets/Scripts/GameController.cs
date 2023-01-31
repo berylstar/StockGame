@@ -16,8 +16,7 @@ public enum eStockType
 public class GameController : MonoBehaviour
 {
     public static readonly WaitForSecondsRealtime delay_1s = new WaitForSecondsRealtime(1f);
-    public static readonly WaitForSecondsRealtime delay_10s = new WaitForSecondsRealtime(10f);
-    public static readonly WaitForSecondsRealtime delay_1m = new WaitForSecondsRealtime(60f);
+    public static readonly WaitForSecondsRealtime delay_025s = new WaitForSecondsRealtime(0.25f);
 
     public static GameController game_inst = null;
 
@@ -28,8 +27,9 @@ public class GameController : MonoBehaviour
     private int iHour = 9;
     private int iMin = 0;
     public int myMoney = 2000;
+    private bool flag_GameOver = false;
 
-    private int stage = 0;
+    private int stage = 0;  // ÃÑ 14 ½ºÅ×ÀÌÁö
     private int bigUpStage = 0;
     private int bigDownStage = 0;
 
@@ -53,7 +53,13 @@ public class GameController : MonoBehaviour
         textMyMoney.text = myMoney + " $";
 
         if (Input.GetKeyDown(KeyCode.Space))
-            iMin += 1;
+        {
+            if (0 < iMin && iMin < 20)
+                iMin = 20;
+            else if (30 < iMin && iMin < 50)
+                iMin = 50;
+            textTime.text = string.Format("{0:D2}:{1:D2}", iHour, iMin);
+        }
     }
 
     private void DrawLots()
@@ -115,7 +121,7 @@ public class GameController : MonoBehaviour
 
     private int Stock_Crescendo()
     {
-        return Random.Range(0, 5) * 100;
+        return Random.Range(0, 4) * 100;
     }
 
     private int Stock_Bigup()
@@ -129,14 +135,14 @@ public class GameController : MonoBehaviour
     private int Stock_Bigdown()
     {
         if (stage == bigDownStage)
-            return -Random.Range(10, 16) * 100;
+            return-Random.Range(10, 15) * -100;
         else
             return Stock_Random();
     }
 
     private int Stock_Wave()
     {
-        return Random.Range(-4, 4) * 200;
+        return Random.Range(-2, 2) * 300;
     }
 
     private int Stock_Steady()
@@ -144,9 +150,23 @@ public class GameController : MonoBehaviour
         return Random.Range(-3, 2) * 100;
     }
 
+    private void CheckBankrupt()
+    {
+        if (myMoney < 1)
+        {
+            for (int i = 0; i < stocks.Length; i++)
+            {
+                if (stocks[i].GetComponent<StockScript>().stockHolding > 0)
+                    return;
+            }
+
+            flag_GameOver = true;
+        }
+    }
+
     IEnumerator GameStart()
     {
-        while (iHour < 15 || iMin < 30)
+        while ((iHour < 15 || iMin < 30) && !flag_GameOver)
         {
             textTime.text = string.Format("{0:D2}:{1:D2}", iHour, iMin);
 
@@ -161,7 +181,11 @@ public class GameController : MonoBehaviour
             }
 
             if ((20 < iMin && iMin < 30) || (50 < iMin))
+            {
+                StartCoroutine(Blink());
                 SoundManager.inst.PlaySound("BeforeTime");
+            }
+                
 
             if (iMin == 0 || iMin == 30)
             {
@@ -172,10 +196,21 @@ public class GameController : MonoBehaviour
 
                 stage += 1;
 
+                CheckBankrupt();
+
                 SoundManager.inst.PlaySound("OnTime");
             }
         }
 
-        textTime.text = "15:30";
+        textTime.text = "OVER";
+    }
+
+    IEnumerator Blink()
+    {
+        textTime.color = new Color(255, 255, 0, 0);
+
+        yield return delay_025s;
+
+        textTime.color = new Color(255, 255, 0, 1);
     }
 }
