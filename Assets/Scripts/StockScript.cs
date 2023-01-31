@@ -15,7 +15,7 @@ public class StockScript : MonoBehaviour
     public int costNext;
     public int prevChange;
     public int costChange;
-    private bool flag_Delisting = false;
+    public bool flag_Delisting = false;
 
     private void Start()
     {
