@@ -12,8 +12,9 @@ public class StockScript : MonoBehaviour
     [HideInInspector] public eStockType thistype;
     public int stockHolding = 0;
     public int costNow;
-    private int costNext;
-    private int costChange;
+    public int costNext;
+    public int prevChange;
+    public int costChange;
     private bool flag_Delisting = false;
 
     private void Start()
@@ -29,6 +30,7 @@ public class StockScript : MonoBehaviour
         textCost.text = costNow + "$";
         AppleTextChange();
 
+        prevChange = costChange;
         costChange = GameController.game_inst.PriceChange(this);
         costNext = costNow + costChange;
     }

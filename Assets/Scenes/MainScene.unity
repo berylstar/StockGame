@@ -1328,7 +1328,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -60, y: 180}
+  m_AnchoredPosition: {x: -80, y: 200}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &448464644
@@ -1959,7 +1959,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 700}
+  m_SizeDelta: {x: 800, y: 800}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &589684727
 MonoBehaviour:
@@ -2584,7 +2584,7 @@ MonoBehaviour:
   thistype: 0
   stockHolding: 0
   costNow: 500
-  myAverage: 0
+  costChange: 0
 --- !u!222 &874324052
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3158,7 +3158,7 @@ MonoBehaviour:
   thistype: 0
   stockHolding: 0
   costNow: 500
-  myAverage: 0
+  costChange: 0
 --- !u!222 &917611145
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3730,7 +3730,7 @@ MonoBehaviour:
   thistype: 0
   stockHolding: 0
   costNow: 300
-  myAverage: 0
+  costChange: 0
 --- !u!222 &1177834088
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3830,7 +3830,7 @@ MonoBehaviour:
   thistype: 0
   stockHolding: 0
   costNow: 1200
-  myAverage: 0
+  costChange: 0
 --- !u!222 &1211902397
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4693,7 +4693,7 @@ MonoBehaviour:
   thistype: 0
   stockHolding: 0
   costNow: 700
-  myAverage: 0
+  costChange: 0
 --- !u!222 &1740084918
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5447,6 +5447,7 @@ MonoBehaviour:
   - {fileID: 1211902394}
   - {fileID: 1740084915}
   - {fileID: 1177834085}
+  textNews: {fileID: 448464644}
   textTime: {fileID: 636667545}
   textMyMoney: {fileID: 562557423}
   myMoney: 2000

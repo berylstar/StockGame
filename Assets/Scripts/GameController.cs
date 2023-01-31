@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
     public static GameController game_inst = null;
 
     public GameObject[] stocks;
+    public Text textNews;
     public Text textTime;
     public Text textMyMoney;
 
@@ -32,6 +33,8 @@ public class GameController : MonoBehaviour
     private int stage = 0;  // 총 14 스테이지
     private int bigUpStage = 0;
     private int bigDownStage = 0;
+
+    private eStockType _tnews = eStockType.RANDOM;
 
     private List<int> indexList = new List<int>() { 0, 1, 2, 3, 4 };
     private List<eStockType> typeList = new List<eStockType>() { eStockType.CRESCENDO, eStockType.BIGUP, eStockType.BIGDOWN, eStockType.WAVE, eStockType.STEADY };
@@ -52,7 +55,7 @@ public class GameController : MonoBehaviour
     {
         textMyMoney.text = myMoney + " $";
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !flag_GameOver)
         {
             if (0 < iMin && iMin < 20)
                 iMin = 20;
@@ -89,6 +92,8 @@ public class GameController : MonoBehaviour
 
         bigUpStage = Random.Range(7, 14);
         bigDownStage = Random.Range(7, 14);
+
+        _tnews = pickedType[0];
     }
 
     public int PriceChange(StockScript stock)
@@ -164,6 +169,87 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // 힌트 종류
+    // 1. 이전 라운드 ??한 종목 중 하나가 ??합니다. (상승/하락/유지)
+    // 2. ??? + 200$ (종목)
+    // 3. ??개의 주가가 ??합니다. (갯수) (상승/하락/유지)   -> 하락이 많으면 전체적인 경제 침체입니다 이런식으로
+    // 4. 전문가의 의견 -> 주식 전문가 ㅁㅁ씨가 ?? 종목을 매도했다는 소식입니다. + 신뢰도 ??%
+    // 5. 초반에 특수 주식 타입에 대한 정보 한 개 주기
+
+    // 상장폐지 힌트
+
+    private void RandomNews()
+    {
+        string message = "";
+        int newsIndex = Random.Range(0, 4);
+        int stockIndex = Random.Range(0, 5);
+
+        if (newsIndex == 0)
+        {
+            int costChange = stocks[stockIndex].GetComponent<StockScript>().costChange;
+
+            if (costChange > 0)
+                message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n시장 호황에 상승 전망...\n전문가들 주가 +{0}$ 예측", costChange);
+            else if (costChange == 0)
+                message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n실적 발표로 주가 정상화...\n전문가들 주가 동결 예측", costChange);
+            else
+                message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n기대이하 성장에 하락세...\n전문가들 주가 {0}$ 예측", costChange);
+        }
+        else if (newsIndex == 1)
+        {
+            int plus = 0;
+            int minus = 0;
+
+            for (int i = 0; i < 5; i++)
+            {
+                if (stocks[i].GetComponent<StockScript>().costChange > 0)
+                    plus += 1;
+                else if (stocks[i].GetComponent<StockScript>().costChange < 0)
+                    minus -= 1;
+            }
+
+            if (plus > minus)
+                message = string.Format("[경제]\n정부의 주식 정책 발표에\n시장 활성화 전망...\n전문가들 {0}개주 상승 예측", plus);
+            else
+                message = string.Format("[경제]\n정부의 주식 정책 발표에\n시장 침체 전망...\n전문가들 {0}개주 하락 예측", minus);
+        }
+        else if (newsIndex == 2)
+        {
+            int prevChange = stocks[stockIndex].GetComponent<StockScript>().prevChange;
+            int costChange = stocks[stockIndex].GetComponent<StockScript>().costChange;
+            
+            if (prevChange > 0 && costChange > 0)
+                message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n지난 분기 대비 실적 상승...\n주가 연이어 상승 예측");
+            else if (prevChange < 0 && costChange < 0)
+                message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n경기 침체 극복 실패...\n주가 연이어 하락 예측");
+
+            else if (costChange > 0)
+                message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n시장 호황에 상승 전망...\n전문가들 주가 +{0}$ 예측", costChange);
+            else if (costChange == 0)
+                message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n실적 발표로 주가 정상화...\n전문가들 주가 동결 예측", costChange);
+            else
+                message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n기대이하 성장에 하락세...\n전문가들 주가 {0}$ 예측", costChange);
+        }
+        else if (newsIndex == 3)
+        {
+            for (int i = 0; i < 5; i++)
+            {
+                if (stocks[i].GetComponent<StockScript>().costNext <= 0)
+                {
+                    message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n구조조정 이어 소송까지...\n결국 파산 신청");
+                    break;
+                }
+            }
+            message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\nK-기업의 힘 보여주나...\n파산 위기에서 소생");
+        }
+        //else if (newsIndex == 4)
+        //{
+        //    message = string.Format("이번 종목 중 하나는\n{0} 타입의 주식입니다.", _tnews);
+        //}
+
+        textNews.text = message;
+    }
+
     IEnumerator GameStart()
     {
         while ((iHour < 15 || iMin < 30) && !flag_GameOver)
@@ -186,7 +272,6 @@ public class GameController : MonoBehaviour
                 SoundManager.inst.PlaySound("BeforeTime");
             }
                 
-
             if (iMin == 0 || iMin == 30)
             {
                 for (int i = 0; i < stocks.Length; i++)
@@ -195,6 +280,8 @@ public class GameController : MonoBehaviour
                 }
 
                 stage += 1;
+
+                RandomNews();
 
                 CheckBankrupt();
 

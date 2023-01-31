@@ -1206,7 +1206,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: '<<STOCK TYPE>>
+
+    RANDOM & WAVE
+
+    BIGUP & BIGDOWN
+
+    CRESCENDO
+    & STEADY'
 --- !u!222 &448464645
 CanvasRenderer:
   m_ObjectHideFlags: 0
