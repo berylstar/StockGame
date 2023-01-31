@@ -205,7 +205,7 @@ public class GameController : MonoBehaviour
                 if (stocks[i].GetComponent<StockScript>().costChange > 0)
                     plus += 1;
                 else if (stocks[i].GetComponent<StockScript>().costChange < 0)
-                    minus -= 1;
+                    minus += 1;
             }
 
             if (plus > minus)
@@ -232,15 +232,29 @@ public class GameController : MonoBehaviour
         }
         else if (newsIndex == 3)
         {
+            bool flagg = false;
             for (int i = 0; i < 5; i++)
             {
                 if (stocks[i].GetComponent<StockScript>().costNext <= 0)
                 {
                     message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n구조조정 이어 소송까지...\n결국 파산 신청");
-                    break;
+                    flagg = true;
                 }
             }
-            message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\nK-기업의 힘 보여주나...\n파산 위기에서 소생");
+            if (!flagg)
+            {
+                // message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\nK-기업의 힘 보여주나...\n파산 위기에서 소생");
+
+                int costChange = stocks[stockIndex].GetComponent<StockScript>().costChange;
+
+                if (costChange > 0)
+                    message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n시장 호황에 상승 전망...\n전문가들 주가 +{0}$ 예측", costChange);
+                else if (costChange == 0)
+                    message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n실적 발표로 주가 정상화...\n전문가들 주가 동결 예측", costChange);
+                else
+                    message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n기대이하 성장에 하락세...\n전문가들 주가 {0}$ 예측", costChange);
+            }
+                
         }
         //else if (newsIndex == 4)
         //{
