@@ -55,13 +55,30 @@ public class GameController : MonoBehaviour
     {
         textMyMoney.text = myMoney + " $";
 
-        if (Input.GetKeyDown(KeyCode.Space) && !flag_GameOver)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (0 < iMin && iMin < 20)
-                iMin = 20;
-            else if (30 < iMin && iMin < 50)
-                iMin = 50;
-            textTime.text = string.Format("{0:D2}:{1:D2}", iHour, iMin);
+            ButtonTimeSkip();
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftControl))
+        {
+            for (int i = 0; i < stocks.Length; i++)
+            {
+                stocks[i].transform.GetChild(0).gameObject.SetActive(false);
+                stocks[i].transform.GetChild(1).gameObject.SetActive(false);
+                stocks[i].transform.GetChild(5).gameObject.SetActive(true);
+                stocks[i].transform.GetChild(6).gameObject.SetActive(true);
+            }
+        }
+        if (Input.GetKeyUp(KeyCode.LeftControl))
+        {
+            for (int i = 0; i < stocks.Length; i++)
+            {
+                stocks[i].transform.GetChild(0).gameObject.SetActive(true);
+                stocks[i].transform.GetChild(1).gameObject.SetActive(true);
+                stocks[i].transform.GetChild(5).gameObject.SetActive(false);
+                stocks[i].transform.GetChild(6).gameObject.SetActive(false);
+            }
         }
     }
 
@@ -283,7 +300,14 @@ public class GameController : MonoBehaviour
 
     public void ButtonTimeSkip()
     {
-        print(1);
+        if (flag_GameOver)
+            return;
+
+        if (0 < iMin && iMin < 20)
+            iMin = 20;
+        else if (30 < iMin && iMin < 50)
+            iMin = 50;
+        textTime.text = string.Format("{0:D2}:{1:D2}", iHour, iMin);
     }
 
     IEnumerator GameStart()
@@ -327,6 +351,11 @@ public class GameController : MonoBehaviour
         }
 
         textTime.text = "OVER";
+
+        for (int i = 0; i < stocks.Length; i++)
+        {
+            stocks[i].GetComponent<StockScript>().ButtonAllSelling();
+        }
     }
 
     IEnumerator Blink()

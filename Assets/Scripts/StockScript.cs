@@ -97,4 +97,22 @@ public class StockScript : MonoBehaviour
         else
             SoundManager.inst.PlaySound("Error");
     }
+
+    public void ButtonAllBuying()
+    {
+        if ((GameController.game_inst.myMoney >= costNow))
+            while (GameController.game_inst.myMoney >= costNow)
+                ButtonBuying();
+        else
+            SoundManager.inst.PlaySound("Error");
+    }
+
+    public void ButtonAllSelling()
+    {
+        if (stockHolding > 0)
+            while (stockHolding > 0)
+                ButtonSelling();
+        else
+            SoundManager.inst.PlaySound("Error");
+    }
 }
