@@ -17,6 +17,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip sBuy;
     public AudioClip sSell;
     public AudioClip sError;
+    public AudioClip sButton;
 
     private AudioSource soundman;
 
@@ -56,6 +57,12 @@ public class SoundManager : MonoBehaviour
         {
             soundman = speekerButton.GetComponent<AudioSource>();
             soundman.clip = sError;
+        }
+
+        else if (_case == "Button")
+        {
+            soundman = speekerButton.GetComponent<AudioSource>();
+            soundman.clip = sButton;
         }
             
         soundman.Play();
