@@ -20,6 +20,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip sButton;
 
     private AudioSource soundman;
+    private bool flag_Mute = false;
 
     private void Awake()
     {
@@ -29,6 +30,9 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(string _case)
     {
+        if (flag_Mute)
+            return;
+
         if (_case == "BeforeTime")
         {
             soundman = speekerTime.GetComponent<AudioSource>();
@@ -66,5 +70,10 @@ public class SoundManager : MonoBehaviour
         }
             
         soundman.Play();
+    }
+
+    public void ButtonMute()
+    {
+        flag_Mute = !flag_Mute;
     }
 }

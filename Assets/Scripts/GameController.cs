@@ -221,7 +221,7 @@ public class GameController : MonoBehaviour
             int costChange = stocks[stockIndex].GetComponent<StockScript>().costChange;
 
             if (costChange > 0)
-                message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n시장 호황에 상승 전망...\n전문가들 주가 +{0}$ 예측", costChange);
+                message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n호황에 역대급 투자자 몰려\n전문가들 주가 +{0}$ 예측", costChange);
             else if (costChange == 0)
                 message = string.Format("[특징주] ㅇㅇㅇㅇ,\n\n실적 발표로 주가 안정되나?\n전문가들 주가 동결 예측", costChange);
             else
@@ -241,9 +241,9 @@ public class GameController : MonoBehaviour
             }
 
             if (plus <= minus)
-                message = string.Format("[경제]\n정부의 주식 정책 발표에\n시장 침체 전망...\n전문가들 {0}개주 하락 예측", minus);
+                message = string.Format("[경제]\n월 스트리트 저널,\n\"경기 침체에 찬바람불 것\"\n전문가들 {0}개주 하락 예측", minus);
             else
-                message = string.Format("[경제]\n정부의 주식 정책 발표에\n주식 시장 다시 살아나나?\n전문가들 {0}개주 상승 예측", plus);
+                message = string.Format("[경제]\n정부 주식 정책 발표,\n주식 시장 활기 불어넣나?\n전문가들 {0}개주 상승 예측", plus);
         }
         else if (newsIndex == 2)
         {
@@ -253,12 +253,12 @@ public class GameController : MonoBehaviour
             if (prevChange > 0 && costChange > 0)
                 message = string.Format("[특징주] ☆☆☆☆,\n\n세계로 나아가는 'K-기업'\n주가 또 다시 상승 예측");
             else if (prevChange < 0 && costChange < 0)
-                message = string.Format("[특징주] ▽▽▽▽,\n\n경기 침체 극복 실패...\n주가 또 다시 하락 예측");
+                message = string.Format("[특징주] ♧♧♧♧,\n\n경기 침체 극복 실패...\n주가 또 다시 하락 예측");
             else if (prevChange > 0 && costChange < 0)
                 message = string.Format("[특징주] ♤♤♤♤,\n\n갑작스러운 경기 침체에 주춤\n상승했던 주가 재차 하락");
 
-            else if (costChange > 0)
-                message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n시장 호황에 상승 전망...\n전문가들 주가 +{0}$ 예측", costChange);
+            if (costChange > 0)
+                message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n호황에 역대급 투자자 몰려\n전문가들 주가 +{0}$ 예측", costChange);
             else if (costChange == 0)
                 message = string.Format("[특징주] ㅇㅇㅇㅇ,\n\n실적 발표로 주가 안정되나?\n전문가들 주가 동결 예측", costChange);
             else
@@ -271,7 +271,7 @@ public class GameController : MonoBehaviour
             {
                 if (stocks[i].GetComponent<StockScript>().costNext <= 0 && !stocks[i].GetComponent<StockScript>().flag_Delisting)
                 {
-                    message = string.Format("[특징주] ＠＠＠＠,\n\n구조조정 이어 소송까지...\n결국 파산 절차 밟아");
+                    message = string.Format("[특징주] ◎◎◎◎,\n\n구조조정 이어 소송까지...\n결국 파산 절차 밟아");
                     flagg = true;
                 }
             }
@@ -282,7 +282,7 @@ public class GameController : MonoBehaviour
                 int costChange = stocks[stockIndex].GetComponent<StockScript>().costChange;
 
                 if (costChange > 0)
-                    message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n시장 호황에 상승 전망...\n전문가들 주가 +{0}$ 예측", costChange);
+                    message = string.Format("[특징주] ㅁㅁㅁㅁ,\n\n호황에 역대급 투자자 몰려\n전문가들 주가 +{0}$ 예측", costChange);
                 else if (costChange == 0)
                     message = string.Format("[특징주] ㅇㅇㅇㅇ,\n\n실적 발표로 주가 안정되나?\n전문가들 주가 동결 예측", costChange);
                 else
@@ -290,10 +290,10 @@ public class GameController : MonoBehaviour
             }
                 
         }
-        //else if (newsIndex == 4)
-        //{
-        //    message = string.Format("이번 종목 중 하나는\n{0} 타입의 주식입니다.", _tnews);
-        //}
+        // else if (newsIndex == 4)
+        // {
+        //     message = string.Format("이번 종목 중 하나는\n{0} 타입의 주식입니다.", _tnews);
+        // }
 
         textNews.text = message;
     }
