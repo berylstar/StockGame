@@ -216,6 +216,13 @@ public class GameController : MonoBehaviour
             stockIndex = Random.Range(0, 5);
         }
 
+        if (stage == 1)
+        {
+            message = string.Format("[Breaking News]\n\nOne of stocks turned out\nto be \'{0}\'...shocking", _tnews);
+            textNews.text = message;
+            return;
+        }
+
         if (newsIndex == 0)
         {
             int costChange = stocks[stockIndex].GetComponent<StockScript>().costChange;
@@ -290,10 +297,6 @@ public class GameController : MonoBehaviour
             }
                 
         }
-        // else if (newsIndex == 4)
-        // {
-        //     message = string.Format("이번 종목 중 하나는\n{0} 타입의 주식입니다.", _tnews);
-        // }
 
         textNews.text = message;
     }
