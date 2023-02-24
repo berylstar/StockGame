@@ -18,6 +18,7 @@ public class SoundManager : MonoBehaviour
     public AudioClip sSell;
     public AudioClip sError;
     public AudioClip sButton;
+    public AudioClip sLongClick;
 
     private AudioSource soundman;
     private bool flag_Mute = false;
@@ -68,7 +69,13 @@ public class SoundManager : MonoBehaviour
             soundman = speekerButton.GetComponent<AudioSource>();
             soundman.clip = sButton;
         }
-            
+
+        else if (_case == "LongClick")
+        {
+            soundman = speekerButton.GetComponent<AudioSource>();
+            soundman.clip = sLongClick;
+        }
+
         soundman.Play();
     }
 
