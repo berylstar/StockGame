@@ -18,8 +18,9 @@ public class StockScript : MonoBehaviour
     public bool flag_Delisting = false;
 
     private float clickTime = 0f;
-    private float minClick = 0.5f;
+    private float minClick = 0.3f;
     private bool isClick = false;
+    private bool isLongSound = false;
 
     private void Start()
     {
@@ -34,16 +35,16 @@ public class StockScript : MonoBehaviour
         {
             clickTime += Time.deltaTime;
 
-            //if (clickTime > minClick + 0.1f)
-            //{
-            //    isClick = false;
-            //    SoundManager.inst.PlaySound("LongClick");
-            //}
+            if (clickTime >= minClick && !isLongSound)
+            {
+                SoundManager.inst.PlaySound("LongClick");
+                isLongSound = true;
+            }
         }
 
         else if (!isClick && clickTime > 0)
         {
-            print(clickTime);
+            isLongSound = false;
             clickTime = 0f;
         }
             
@@ -117,7 +118,6 @@ public class StockScript : MonoBehaviour
             stockHolding -= 1;
             textStockHolding.text = stockHolding + "";
             SoundManager.inst.PlaySound("Sell");
-
         }
         else
             SoundManager.inst.PlaySound("Error");
@@ -154,6 +154,10 @@ public class StockScript : MonoBehaviour
         {
             ButtonAllBuying();
         }
+        else
+        {
+            ButtonBuying();
+        }
     }
 
     public void LongClickAllSell()
@@ -163,6 +167,10 @@ public class StockScript : MonoBehaviour
         if (clickTime >= minClick)
         {
             ButtonAllSelling();
+        }
+        else
+        {
+            ButtonSelling();
         }
     }
 }

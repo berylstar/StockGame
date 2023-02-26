@@ -999,19 +999,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 228058337}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1740084917}
-        m_TargetAssemblyTypeName: StockScript, Assembly-CSharp
-        m_MethodName: ButtonBuying
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &228058337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1085,7 +1073,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1740084917}
           m_TargetAssemblyTypeName: StockScript, Assembly-CSharp
-          m_MethodName: ButtonAllBuying
+          m_MethodName: LongClickAllBuy
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1800,19 +1788,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 390883848}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 917611144}
-        m_TargetAssemblyTypeName: StockScript, Assembly-CSharp
-        m_MethodName: ButtonSelling
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &390883848
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2905,19 +2881,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 567292910}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 874324051}
-        m_TargetAssemblyTypeName: StockScript, Assembly-CSharp
-        m_MethodName: ButtonBuying
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &567292910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3084,19 +3048,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 570856771}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1211902396}
-        m_TargetAssemblyTypeName: StockScript, Assembly-CSharp
-        m_MethodName: ButtonSelling
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &570856771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4127,19 +4079,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 885282605}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1177834087}
-        m_TargetAssemblyTypeName: StockScript, Assembly-CSharp
-        m_MethodName: ButtonSelling
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &885282605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5043,19 +4983,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 969691273}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 874324051}
-        m_TargetAssemblyTypeName: StockScript, Assembly-CSharp
-        m_MethodName: ButtonSelling
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &969691273
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5586,19 +5514,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1076287916}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1211902396}
-        m_TargetAssemblyTypeName: StockScript, Assembly-CSharp
-        m_MethodName: ButtonBuying
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1076287916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6023,8 +5939,8 @@ MonoBehaviour:
   sBuy: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
   sSell: {fileID: 8300000, guid: 6e8772b49f34d402a90016ed445d8a2f, type: 3}
   sError: {fileID: 8300000, guid: 724131bc8a7f34041bb9f1701f0cb58d, type: 3}
-  sButton: {fileID: 8300000, guid: cf6c0e7fbef9449c98a0cdb5ea0c4d9f, type: 3}
-  sLongClick: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
+  sButton: {fileID: 8300000, guid: d8d04c6f80a1140db85ede568dab1f51, type: 3}
+  sLongClick: {fileID: 8300000, guid: cf6c0e7fbef9449c98a0cdb5ea0c4d9f, type: 3}
 --- !u!1 &1334571630
 GameObject:
   m_ObjectHideFlags: 0
@@ -7530,19 +7446,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1865136543}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1177834087}
-        m_TargetAssemblyTypeName: StockScript, Assembly-CSharp
-        m_MethodName: ButtonBuying
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1865136543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7946,19 +7850,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1898796257}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1740084917}
-        m_TargetAssemblyTypeName: StockScript, Assembly-CSharp
-        m_MethodName: ButtonSelling
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1898796257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8032,7 +7924,7 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1740084917}
           m_TargetAssemblyTypeName: StockScript, Assembly-CSharp
-          m_MethodName: ButtonSelling
+          m_MethodName: LongClickAllSell
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8542,19 +8434,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2117912163}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 917611144}
-        m_TargetAssemblyTypeName: StockScript, Assembly-CSharp
-        m_MethodName: ButtonBuying
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &2117912163
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8726,7 +8606,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4734307165847087234, guid: 32dadc847a7167f4383f2f70d844065b, type: 3}
       propertyPath: m_Text
-      value: v.1.3222
+      value: v.1.30227
       objectReference: {fileID: 0}
     - target: {fileID: 4734307165847087235, guid: 32dadc847a7167f4383f2f70d844065b, type: 3}
       propertyPath: m_Pivot.x

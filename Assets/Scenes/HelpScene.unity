@@ -970,6 +970,7 @@ MonoBehaviour:
   sSell: {fileID: 8300000, guid: 6e8772b49f34d402a90016ed445d8a2f, type: 3}
   sError: {fileID: 8300000, guid: 724131bc8a7f34041bb9f1701f0cb58d, type: 3}
   sButton: {fileID: 8300000, guid: cf6c0e7fbef9449c98a0cdb5ea0c4d9f, type: 3}
+  sLongClick: {fileID: 0}
 --- !u!1 &1618241625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,8 +1043,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "<<How To Control>>\n\n\uC8FC\uC2DD \uB9E4\uB3C4, \uB9E4\uC218\n: \uBC84\uD2BC
     \uD074\uB9AD\n\nSpace bar, \uC804\uAD11\uD310 \uD074\uB9AD\n: \uC2DC\uAC04 \uC2A4\uD0B5\n\nLeft
-    Ctrl\n: \uD480\uB9E4\uC218, \uD480\uB9E4\uB3C4 \uBC84\uD2BC \uC5F4\uAE30\n\nRe
-    \uBC84\uD2BC\n: \uAC8C\uC784 \uB2E4\uC2DC \uC2DC\uC791"
+    Ctrl \uB610\uB294 \uB871\uD074\uB9AD\n: \uD480\uB9E4\uC218, \uD480\uB9E4\uB3C4
+    \uBC84\uD2BC\n\nRe \uBC84\uD2BC\n: \uAC8C\uC784 \uB2E4\uC2DC \uC2DC\uC791"
 --- !u!222 &1618241628
 CanvasRenderer:
   m_ObjectHideFlags: 0
