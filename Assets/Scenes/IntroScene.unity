@@ -2060,7 +2060,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4234170183f2fff47ac8deabb575e698, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a875a86b939cc3d44949cbcc0c4df253, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4106,6 +4106,7 @@ MonoBehaviour:
   sSell: {fileID: 8300000, guid: 6e8772b49f34d402a90016ed445d8a2f, type: 3}
   sError: {fileID: 8300000, guid: 724131bc8a7f34041bb9f1701f0cb58d, type: 3}
   sButton: {fileID: 8300000, guid: cf6c0e7fbef9449c98a0cdb5ea0c4d9f, type: 3}
+  sLongClick: {fileID: 0}
 --- !u!1 &1334571630
 GameObject:
   m_ObjectHideFlags: 0

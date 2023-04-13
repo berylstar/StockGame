@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 628120749}
     m_Modifications:
+    - target: {fileID: 4734307165847087234, guid: 32dadc847a7167f4383f2f70d844065b, type: 3}
+      propertyPath: m_Text
+      value: v.1.310414
+      objectReference: {fileID: 0}
     - target: {fileID: 4734307165847087235, guid: 32dadc847a7167f4383f2f70d844065b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -456,7 +460,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 2a0476f0d26838c4786fe771839f6e26, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 156bf1105550c524b9a123d472f1ee14, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1005,7 +1009,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 414, y: 34}
+  m_AnchoredPosition: {x: 450, y: 100}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1618241627
