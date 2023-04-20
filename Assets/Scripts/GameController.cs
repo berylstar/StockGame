@@ -29,6 +29,7 @@ public class GameController : MonoBehaviour
     private int iMin = 0;
     public int myMoney = 2000;
     private bool flag_GameOver = false;
+    public float minClick = 0.3f;
 
     private int stage = 0;  // 총 14 스테이지
     private int bigUpStage = 0;

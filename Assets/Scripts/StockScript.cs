@@ -9,7 +9,7 @@ public class StockScript : MonoBehaviour
     public Text textChange;
     public Text textStockHolding;
 
-    [HideInInspector] public eStockType thistype;
+    public eStockType thistype;
     public int stockHolding = 0;
     public int costNow;
     public int costNext;
@@ -18,7 +18,6 @@ public class StockScript : MonoBehaviour
     public bool flag_Delisting = false;
 
     private float clickTime = 0f;
-    private float minClick = 0.3f;
     private bool isClick = false;
     private bool isLongSound = false;
 
@@ -35,7 +34,7 @@ public class StockScript : MonoBehaviour
         {
             clickTime += Time.deltaTime;
 
-            if (clickTime >= minClick && !isLongSound)
+            if (clickTime >= GameController.game_inst.minClick && !isLongSound)
             {
                 SoundManager.inst.PlaySound("LongClick");
                 isLongSound = true;
@@ -54,14 +53,14 @@ public class StockScript : MonoBehaviour
     {
         NextToNowCost();
         textCost.text = costNow + "$";
-        AppleTextChange();
+        ApplyTextChange();
 
         prevChange = costChange;
         costChange = GameController.game_inst.PriceChange(this);
         costNext = costNow + costChange;
     }
 
-    private void AppleTextChange()
+    private void ApplyTextChange()
     {
         if (costChange > 0)
         {
@@ -91,9 +90,9 @@ public class StockScript : MonoBehaviour
             flag_Delisting = true;
             costNow = 0;
             stockHolding = 0;
-            textStockHolding.text = stockHolding + "";
+            textStockHolding.text = stockHolding.ToString();
         }
-        else if (costNow > 0)
+        else
             flag_Delisting = false;
     }
 
@@ -150,7 +149,7 @@ public class StockScript : MonoBehaviour
     {
         isClick = false;
 
-        if (clickTime >= minClick)
+        if (clickTime >= GameController.game_inst.minClick)
         {
             ButtonAllBuying();
         }
@@ -164,7 +163,7 @@ public class StockScript : MonoBehaviour
     {
         isClick = false;
 
-        if (clickTime >= minClick)
+        if (clickTime >= GameController.game_inst.minClick)
         {
             ButtonAllSelling();
         }
